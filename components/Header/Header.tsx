@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import styles from './Header.module.css'
+import AuthNavigation from '../AuthNavigation/AuthNavigation'
 
 export default function Header() {
     return (
@@ -24,16 +25,7 @@ export default function Header() {
                         </Link>
                     </div>
                 </div>
-                <div className={styles.auth_links}>
-                    <Link href="/login" className={styles.login_link}>
-                      <svg className={styles.login_icon} width="20" height="20">
-                        <use href="/sprite.svg#icon-log-in"></use>
-                      </svg>
-                        Log in
-                    </Link>
-
-                    <Link href="/register" className={styles.registration_link}>Registration</Link>
-                </div>
+                <AuthNavigation />
             </div>
         </header>
     )
