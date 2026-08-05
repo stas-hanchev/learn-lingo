@@ -13,11 +13,11 @@
 
 .modal {
   position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 566px;
+  max-height: 1144px;
   border-radius: 8px;
   background-color: #fff;
-  padding: 24px;
+  padding: 64px;
 }
 
 .closeButton {
@@ -32,7 +32,6 @@
   font-size: 20px;
   line-height: 0;
   color: #333;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   display: flex;
   align-items: center;

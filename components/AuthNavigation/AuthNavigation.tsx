@@ -28,11 +28,12 @@ export default function AuthNavigation() {
 
             {isLoginModalOpen && (
                 <Modal
-                    mode="login"
-                    heading="Log in"
-                    description="Welcome back! Please enter your credentials to access your account and continue your search for an teacher."
                     onClose={closeLoginModal}
-                />
+                >
+                    <h2 className={styles.heading}>Log in</h2>
+                    <p className={styles.description}>Welcome back! Please enter your credentials to access your account and continue your search for an teacher.</p>
+                </Modal>
+
             )}
 
             <button type="button" className={styles.registration_button} onClick={openRegistrationModal}>
@@ -41,11 +42,11 @@ export default function AuthNavigation() {
 
             {isRegistrationModalOpen && (
                 <Modal
-                    mode="registration"
-                    heading="Registration"
-                    description="Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information."
                     onClose={closeRegistrationModal}
-                />
+                >
+                    <h2 className={styles.heading}>Registration</h2>
+                    <p className={styles.description}>Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.</p>
+                </Modal>
             )}
         </div>
     )

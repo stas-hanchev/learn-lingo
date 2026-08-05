@@ -1,22 +1,14 @@
-// src/components/Modal.tsx
-
 import { createPortal } from 'react-dom'
 import css from './Modal.module.css'
 import { useEffect } from 'react'
 
-type ModalMode = 'login' | 'registration'
-
 interface ModalProps {
-    mode: ModalMode
-    heading: string
-    description: string
-    onClose: () => void
+    children: React.ReactNode;
+    onClose: () => void;
 }
 
 export default function Modal({
-    mode,
-    heading,
-    description,
+    children,
     onClose,
 }: ModalProps) {
     const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -33,9 +25,11 @@ export default function Modal({
 	  };
 	
 	  document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
 	
 	  return () => {
 	    document.removeEventListener("keydown", handleKeyDown);
+        document.body.style.overflow = "";
 	  };
 	}, [onClose]);
 
@@ -54,9 +48,7 @@ export default function Modal({
                 >
                     &times;
                 </button>
-
-                <h2 className={css.heading}>{heading}</h2>
-                <p className={css.description}>{description}</p>
+                {children}
             </div>
         </div>,
         document.body
