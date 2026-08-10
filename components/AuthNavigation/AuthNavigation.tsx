@@ -1,11 +1,14 @@
 "use client";
 
-import Link from "next/link";
+import { RegisterRequestBody } from "@/lib/types";
+import { FormikHelpers } from 'formik'
 
 import styles from "./AuthNavigation.module.css";
 
 import { useState } from "react";
 import Modal from "../Modal/Modal";
+import RegistrationForm from "../Forms/RegistrationForm/RegistrationForm";
+import { register } from "@/lib/api";
 
 export default function AuthNavigation() {
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -16,6 +19,25 @@ export default function AuthNavigation() {
 
     const openRegistrationModal = () => setIsRegistrationModalOpen(true);
     const closeRegistrationModal = () => setIsRegistrationModalOpen(false);
+
+    const handleRegistrationSubmit = async (
+        values: RegisterRequestBody,
+        actions: FormikHelpers<RegisterRequestBody>
+    ) => {
+        console.log(values);
+
+        const response = await register(values);
+        console.log(response);
+
+        if (response._id) {
+            alert(`User named ${response.name} has been successfully registered!`);
+        } else {
+            alert(`Oops, error occured(`);
+        }
+
+        actions.resetForm()
+        actions.setSubmitting(false)
+    };
 
     return (
         <div className={styles.auth_links}>
@@ -46,6 +68,7 @@ export default function AuthNavigation() {
                 >
                     <h2 className={styles.heading}>Registration</h2>
                     <p className={styles.description}>Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.</p>
+                    <RegistrationForm onSubmit={handleRegistrationSubmit}></RegistrationForm>
                 </Modal>
             )}
         </div>
