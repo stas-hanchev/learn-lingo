@@ -18,6 +18,16 @@
     background-color: inherit;
 }
 
+.username {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: #121417;
+    border: none;
+    background-color: inherit;
+}
+
 .login_icon {
     width: 20px;
     height: 20px;
@@ -29,6 +39,21 @@
 }
 
 .registration_button {
+    border: none;
+    border-radius: 12px;
+    padding: 14px 39px;
+    width: 166px;
+    height: 48px;
+    background: #121417;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logout_button {
     border: none;
     border-radius: 12px;
     padding: 14px 39px;

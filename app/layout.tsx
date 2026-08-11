@@ -1,38 +1,45 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "modern-normalize/modern-normalize.css";
-import "./globals.css";
-import Header from "@/components/Header/Header";
-import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
+import type { Metadata } from 'next'
+import { Geist, Geist_Mono } from 'next/font/google'
+import 'modern-normalize/modern-normalize.css'
+import './globals.css'
+import Header from '@/components/Header/Header'
+import TanStackProvider from '@/components/TanStackProvider/TanStackProvider'
+import AuthProvider from '@/components/AuthProvider/AuthProvider'
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+    variable: '--font-geist-sans',
+    subsets: ['latin'],
+})
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+    variable: '--font-geist-mono',
+    subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
-  title: "LearnLingo",
-  description: "A language learning app that helps you learn new languages quickly and effectively.",
-};
+    title: 'LearnLingo',
+    description:
+        'A language learning app that helps you learn new languages quickly and effectively.',
+}
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode
 }>) {
-  return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>
-        <TanStackProvider>
-          <Header />
-          {children}
-        </TanStackProvider>
-      </body>
-    </html>
-  );
+    return (
+        <html
+            lang="en"
+            className={`${geistSans.variable} ${geistMono.variable}`}
+        >
+            <body>
+                <TanStackProvider>
+                    <AuthProvider>
+                        <Header />
+                        {children}
+                    </AuthProvider>
+                </TanStackProvider>
+            </body>
+        </html>
+    )
 }

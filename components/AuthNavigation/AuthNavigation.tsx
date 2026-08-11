@@ -9,9 +9,21 @@ import { useState } from 'react'
 import Modal from '../Modal/Modal'
 import RegistrationForm from '../Forms/RegistrationForm/RegistrationForm'
 import LoginForm from '../Forms/LoginForm/LoginForm'
-import { login, register } from '@/lib/api'
+import { login, register, logout } from '@/lib/api'
+
+import { useAuthStore } from '@/lib/store/authStore'
+// import { useRouter } from 'next/navigation'
 
 export default function AuthNavigation() {
+    // const router = useRouter()
+    const { isAuthenticated, user } = useAuthStore()
+
+    const setUser = useAuthStore((state) => state.setUser);
+
+    const clearIsAuthenticated = useAuthStore(
+        (state) => state.clearIsAuthenticated
+    );
+
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
     const [isRegistrationModalOpen, setIsRegistrationModalOpen] =
         useState(false)
@@ -27,7 +39,8 @@ export default function AuthNavigation() {
         actions: FormikHelpers<RegisterRequestBody>
     ) => {
         try {
-            const response = await register(values)
+            const response = await register(values);
+            setUser(response);
 
             if (response._id) {
                 alert(
@@ -49,7 +62,8 @@ export default function AuthNavigation() {
     ) => {
         try {
             const response = await login(values)
-
+            setUser(response);
+            
             if (response._id) {
                 alert(
                     `User named ${response.name} has been successfully logged in!`
@@ -64,7 +78,13 @@ export default function AuthNavigation() {
         }
     }
 
-    return (
+    const handleLogout = async () => {
+        await logout();
+        clearIsAuthenticated();
+        // router.push('/sign-in');
+    }
+
+    return !isAuthenticated ? (
         <div className={styles.auth_links}>
             <button
                 type="button"
@@ -109,6 +129,11 @@ export default function AuthNavigation() {
                     ></RegistrationForm>
                 </Modal>
             )}
+        </div>
+    ) : (
+        <div className={styles.auth_links}>
+            <p className={styles.username}>{user?.name}</p>
+            <button className={styles.logout_button} onClick={handleLogout}>Log Out</button>
         </div>
     )
 }

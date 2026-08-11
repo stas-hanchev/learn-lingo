@@ -16,7 +16,7 @@ export async function GET(request: NextRequest, { params }: Props) {
         return NextResponse.json(
             {
                 error:
-                    (error as ApiError).response?.data?.error ??
+                    (error as ApiError).response?.data?.message ??
                     (error as ApiError).message,
             },
             { status: (error as ApiError).status }
