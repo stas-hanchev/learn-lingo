@@ -62,8 +62,8 @@ export default function RegistrationForm({ onSubmit }: RegistrationFormProps) {
                     (Boolean(touched.email) || submitCount > 0)
 
                 const passwordHasError =
-                    Boolean(errors.email) &&
-                    (Boolean(touched.email) || submitCount > 0)
+                    Boolean(errors.password) &&
+                    (Boolean(touched.password) || submitCount > 0)
 
                 return (
                     <Form className={styles.form} noValidate>

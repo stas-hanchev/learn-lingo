@@ -1,0 +1,157 @@
+import { Field, Form, Formik, FormikHelpers } from 'formik'
+import * as Yup from 'yup'
+import { LoginRequestBody } from '@/lib/types'
+import { FiAlertCircle } from 'react-icons/fi'
+
+import styles from './LoginForm.module.css'
+import { useState } from 'react'
+
+interface LoginFormProps {
+    onSubmit: (
+        values: LoginRequestBody,
+        actions: FormikHelpers<LoginRequestBody>
+    ) => void
+}
+
+const initialValues: LoginRequestBody = {
+    email: '',
+    password: '',
+}
+
+const LoginFormSchema = Yup.object().shape({
+    email: Yup.string()
+        .email('Please enter a valid email.')
+        .required('Please enter your email.'),
+
+    password: Yup.string()
+        .min(8, 'Password must be at least 8 characters.')
+        .matches(
+            /[A-Z]/,
+            'Password must contain at least one uppercase letter.'
+        )
+        .matches(
+            /[a-z]/,
+            'Password must contain at least one lowercase letter.'
+        )
+        .matches(/[0-9]/, 'Password must contain at least one number.')
+        .required('Please enter your password.'),
+})
+
+export default function LoginForm({ onSubmit }: LoginFormProps) {
+    const [showPassword, setShowPassword] = useState(false)
+    
+    return (
+        <Formik
+            initialValues={initialValues}
+            validationSchema={LoginFormSchema}
+            onSubmit={onSubmit}
+        >
+            {({ errors, touched, submitCount, isSubmitting }) => {
+
+                const emailHasError =
+                    Boolean(errors.email) &&
+                    (Boolean(touched.email) || submitCount > 0)
+
+                const passwordHasError =
+                    Boolean(errors.password) &&
+                    (Boolean(touched.password) || submitCount > 0)
+
+                return (
+                    <Form className={styles.form} noValidate>
+                        <div
+                            className={`${styles.field_group} ${styles.email_field_group}`}
+                        >
+                            <div className={styles.input_wrapper}>
+                                <Field
+                                    id="email"
+                                    type="email"
+                                    name="email"
+                                    placeholder={emailHasError ? '' : 'Email'}
+                                    className={`${styles.email_input} ${
+                                        emailHasError ? styles.input_error : ''
+                                    }`}
+                                    aria-invalid={emailHasError}
+                                    aria-describedby={
+                                        emailHasError
+                                            ? 'email-error'
+                                            : undefined
+                                    }
+                                />
+
+                                {emailHasError && (
+                                    <FiAlertCircle
+                                        className={styles.error_icon}
+                                        aria-hidden="true"
+                                    />
+                                )}
+                            </div>
+
+                            {emailHasError && (
+                                <span id="email-error" className={styles.error}>
+                                    {errors.email}
+                                </span>
+                            )}
+                        </div>
+
+                        <div
+                            className={`${styles.field_group} ${styles.password_field_group}`}
+                        >
+                            <div className={styles.input_wrapper}>
+                                <Field
+                                    id="password"
+                                    type={`${showPassword ? 'text' : 'password'}`}
+                                    name="password"
+                                    placeholder={
+                                        passwordHasError ? '' : 'Password'
+                                    }
+                                    className={`${styles.password_input} ${
+                                        emailHasError ? styles.input_error : ''
+                                    }`}
+                                    aria-invalid={passwordHasError}
+                                    aria-describedby={
+                                        passwordHasError
+                                            ? 'password-error'
+                                            : undefined
+                                    }
+                                />
+
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    className={`${styles.eye_icon} ${passwordHasError ? styles.eye_icon_with_error : ''}`}
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    <use href="/sprite.svg#icon-eye-off"></use>
+                                </svg>
+
+                                {passwordHasError && (
+                                    <FiAlertCircle
+                                        className={styles.error_icon}
+                                        aria-hidden="true"
+                                    />
+                                )}
+                            </div>
+
+                            {passwordHasError && (
+                                <span
+                                    id="password-error"
+                                    className={styles.error}
+                                >
+                                    {errors.password}
+                                </span>
+                            )}
+                        </div>
+
+                        <button
+                            className={styles.send_btn}
+                            type="submit"
+                            disabled={isSubmitting}
+                        >
+                            Log In
+                        </button>
+                    </Form>
+                )
+            }}
+        </Formik>
+    )
+}

@@ -33,9 +33,18 @@ export interface RegisterRequestBody {
     password: string;
 }
 
+export interface LoginRequestBody {
+    email: string;
+    password: string;
+}
+
 export interface User {
     _id: string;
     email: string;
     password: string;
     name?: string | null | undefined;
 }
+
+export type CheckSessionRequest = {
+  success: boolean;
+};
