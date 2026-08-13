@@ -48,3 +48,45 @@ export interface User {
 export type CheckSessionRequest = {
   success: boolean;
 };
+
+export enum Language {
+    all = 'All',
+    french = 'French',
+    english = 'English',
+    german = 'German',
+    ukrainian = 'Ukrainian',
+    polish = 'Polish'
+};
+
+export enum Level {
+    all = 'All',
+    beginner = 'A1 Beginner',
+    elementary = 'A2 Elementary',
+    intermediate = 'B1 Intermediate',
+    upperIntermediate = 'B2 Upper-Intermediate',
+    advanced = 'C1 Advanced',
+    proficiency = 'C2 Proficiency'
+};
+
+export enum Price {
+    all = 'All',
+    ten = 10,
+    twenty = 20,
+    thirty = 30,
+    fourty = 40
+};
+
+export interface Filters {
+    languages: Language[];
+    levels: Level[];
+    price_per_hour: Price;
+};
+
+export type SelectOption = { value: string | number; label: string };
+export type OptionType = { value: string; label: string };
+
+export interface SelectFilters {
+    language: OptionType | null;
+    level: OptionType | null;
+    price: OptionType | null;
+}
