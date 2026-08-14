@@ -65,15 +65,15 @@ export enum Level {
     intermediate = 'B1 Intermediate',
     upperIntermediate = 'B2 Upper-Intermediate',
     advanced = 'C1 Advanced',
-    proficiency = 'C2 Proficiency'
+    proficiency = 'C2 Proficient'
 };
 
 export enum Price {
     all = 'All',
-    ten = 10,
-    twenty = 20,
-    thirty = 30,
-    fourty = 40
+    ten = '10',
+    twenty = '20',
+    thirty = '30',
+    fourty = '40'
 };
 
 export interface Filters {
@@ -90,3 +90,11 @@ export interface SelectFilters {
     level: OptionType | null;
     price: OptionType | null;
 }
+
+export interface TeacherQuery {
+    language?: string;
+    level?: string;
+    price?: string;
+    page?: number;
+    perPage: number;
+};

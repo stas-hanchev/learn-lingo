@@ -1,14 +1,16 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { api, ApiError } from '../api'
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+    const searchParams = req.nextUrl.searchParams
+
     try {
-        const { data } = await api('/teachers');
-        console.log(data);
+        const { data } = await api.get('/teachers', {
+            params: Object.fromEntries(searchParams),
+        })
 
         return NextResponse.json(data)
     } catch (error) {
-
         return NextResponse.json(
             {
                 error:

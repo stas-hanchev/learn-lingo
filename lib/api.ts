@@ -7,6 +7,7 @@ import {
     User,
     LoginRequestBody,
     CheckSessionRequest,
+    TeacherQuery
 } from '@/lib/types'
 
 const nextServer = axios.create({
@@ -14,8 +15,12 @@ const nextServer = axios.create({
     withCredentials: true, // дозволяє axios працювати з cookie
 })
 
-export const getTeachers = async () => {
-    const res = await nextServer.get<TeachersResponse>('/teachers')
+export const getTeachers = async (query: TeacherQuery) => {
+    const res = await nextServer.get<TeachersResponse>('/teachers', 
+        {
+            params: query
+        }
+    );
     return res.data
 }
 
