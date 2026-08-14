@@ -1,0 +1,7 @@
+.teachers_list {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    list-style: none;
+}

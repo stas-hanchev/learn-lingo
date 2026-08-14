@@ -1,0 +1,79 @@
+.banner {
+    border-radius: 16px;
+    padding: 24px;
+    width: 888px;
+
+    background: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 21px auto;
+}
+
+.teacher_image {
+
+}
+
+.title {
+    font-family: "Inter", sans-serif;;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+    text-align: center;
+    color: #101828;
+    margin-bottom: 16px;
+}
+
+.description {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #101828;
+    margin-top: 0;
+    margin-bottom: 43px;
+}
+
+.btns_container {
+    display: flex;
+    gap: 16px;
+}
+
+.close_icon {
+    position: absolute;
+    stroke-width: 1.50px;
+    stroke: #000;
+    top: 50%;
+    left: 38px;
+    transform: translateY(-50%);
+}
+
+.btn_clear_filters {
+    font-family: "Inter", sans-serif;
+    padding-left: 66px !important;
+    border: 1px solid #dadde1;
+    border-radius: 200px;
+    padding: 16px 32px;
+    width: 192px;
+    height: 56px;
+    background: #fff;
+    position: relative;
+}
+
+.btn_view_all {
+    font-family: "Inter", sans-serif;;
+    border-radius: 200px;
+    width: 192px;
+    height: 56px;
+    color:  #fff;
+    background:  #829b91;
+}
+
+.btn_view_all:hover {
+    background: #6d7b75;
+}
+
+.btn_clear_filters:hover {
+    border: 1px solid #6d7b75;
+}

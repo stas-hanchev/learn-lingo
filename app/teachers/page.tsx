@@ -16,13 +16,16 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import styles from './page.module.css'
 import { useState } from 'react'
 import TeacherFilter from '@/components/TeacherFilter/TeacherFilter'
+import Loader from '@/components/Loader/Loader'
+import NoTeachersFound from '@/components/NoTeachersFound/NoTeachersFound'
+import TeacherList from '@/components/TeacherList/TeacherList'
 
 export default function TeachersPage() {
     const [filters, setFilters] = useState<SelectFilters | null>(null)
 
     // isFetchin, isFetching, isFetchingNextPage, isError, isLoading
     const teachersQuery = useInfiniteQuery({
-        queryKey: ['teachers', { page: 1, perPage: 3 }, filters],
+        queryKey: ['teachers', { page: 1 }, filters],
         queryFn: ({ pageParam }) => {
             return getTeachers({
                 language:
@@ -44,18 +47,18 @@ export default function TeachersPage() {
         initialPageParam: 1,
         getNextPageParam: (lastResponse: TeachersResponse) => {
             const nextPage = lastResponse.page + 1
-            return nextPage < lastResponse.totalItems ? nextPage : undefined
+            return nextPage <= lastResponse.totalItems ? nextPage : undefined
         },
         select: (data) => {
             return {
                 ...data,
-                campers: data.pages.flatMap((page) => page.teachers),
+                teachers: data.pages.flatMap((page) => page.teachers),
             }
         },
     })
 
-    const teachers = teachersQuery.data?.campers ?? []
-    const hasCampers = teachers.length > 0
+    const teachers = teachersQuery.data?.teachers ?? []
+    const hasTeachers = teachers.length > 0
     console.log(teachers)
 
     return (
@@ -63,6 +66,13 @@ export default function TeachersPage() {
             <section className={styles.teachers_section}>
                 <div className={styles.container}>
                     <TeacherFilter onChange={setFilters}></TeacherFilter>
+                    {teachersQuery.isLoading ? (
+                        <Loader />
+                    ) : hasTeachers ? (
+                        <TeacherList teachers={teachers} />
+                    ) : (
+                        <NoTeachersFound />
+                    )}
                 </div>
             </section>
         </main>

@@ -2,6 +2,9 @@
     display: flex;
     gap: 20px;
     align-items: center;
+    justify-content: center;
+    height: 74px;
+    margin: 0 auto;
 }
 
 .filter_name {
@@ -10,5 +13,6 @@
     font-size: 14px;
     line-height: 129%;
     color: #8a8a89;
+    margin: 0;
     margin-bottom: 8px;
 }

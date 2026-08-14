@@ -1,0 +1,125 @@
+.teacher_container {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    padding: 24px;
+}
+
+.teacher_avatar {
+    border-radius: 100px;
+    width: 96px;
+    height: 96px;
+}
+
+.teacher_avatar_container {
+    border: 3px solid #fbe9ba;
+    border-radius: 100px;
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_info_part {
+
+}
+
+.heading {
+    display: flex;
+}
+
+.languages {
+    font-family: "Roboto", sans-serif;;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #8a8a89;
+    margin: 0;
+    margin-right: 192px;
+}
+
+.characteristics_list {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+}
+
+.book_icon {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    margin-right: 8px;
+}
+
+.characteristic_text {
+    font-family: "Roboto", sans-serif;;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #121417;
+    margin: 0;
+}
+
+.characteristic_container {
+    display: flex;
+    align-items: center;
+}
+
+.lessons_done {
+    font-family: "Roboto", sans-serif;;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #121417;
+}
+
+.rating_container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.star {
+    width: 15px;
+    height: 14px;
+    fill: #ffc531;
+}
+
+.rating {
+    font-family: "Roboto", sans-serif;;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #121417;
+    margin: 0;
+}
+
+.price {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #121417;
+    margin: 0;
+}
+
+.price_value {
+    color: #38cd3e;
+}
+
+.teacher_name {
+    margin: 0;
+    margin-top: 8px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    color: #121417;
+    margin-bottom: 32px;
+}

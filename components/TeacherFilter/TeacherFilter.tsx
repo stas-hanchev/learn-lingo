@@ -67,6 +67,7 @@ export default function TeacherFilter({ onChange }: TeacherFilterProps) {
             <div className={styles.filter_container}>
                 <p className={styles.filter_name}>Languages</p>
                 <Select<OptionType, false>
+                    instanceId="language-select"
                     styles={customStyles}
                     options={languageOptions}
                     onChange={(option) => updateFilters({ language: option })}
@@ -77,6 +78,7 @@ export default function TeacherFilter({ onChange }: TeacherFilterProps) {
             <div className={styles.filter_container}>
                 <p className={styles.filter_name}>Level of knowledge</p>
                 <Select<OptionType, false>
+                    instanceId="language-select"
                     styles={customStyles}
                     options={levelOptions}
                     onChange={(option) => updateFilters({ level: option })}
@@ -87,6 +89,7 @@ export default function TeacherFilter({ onChange }: TeacherFilterProps) {
             <div className={styles.filter_container}>
                 <p className={styles.filter_name}>Price, $</p>
                 <Select<OptionType, false>
+                    instanceId="language-select"
                     styles={customStyles}
                     options={priceOptions}
                     onChange={(option) => updateFilters({ price: option })}

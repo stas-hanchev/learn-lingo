@@ -5,6 +5,7 @@ export interface Review {
 }
 
 export interface Teacher {
+    _id: string;
     name: string;
     surname: string;
     languages: string[];
