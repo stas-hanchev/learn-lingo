@@ -55,6 +55,11 @@ export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
                         <li>
                             <p className={styles.price}>Price / 1 hour: <span className={styles.price_value}>30$</span></p>
                         </li>
+                        <li>
+                            <svg width={26} height={26} className={styles.heart_icon}>
+                                <use href='/sprite.svg#icon-heart'></use>
+                            </svg>
+                        </li>
                     </ul>
                 </div>
                 <p className={styles.teacher_name}>{teacher.name} {teacher.surname}</p>

@@ -4,6 +4,7 @@
     align-items: flex-start;
     padding: 24px;
     background-color: #fff;
+    width: 1232px;
 }
 
 .teacher_avatar {
@@ -199,4 +200,12 @@
 .desired_level {
     background: #f4c550;
     border: none;
+}
+
+.heart_icon {
+    fill: none;
+    stroke: #121417;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
