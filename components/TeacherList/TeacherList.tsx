@@ -4,8 +4,8 @@ import styles from './TeacherList.module.css'
 import TeacherCard from '../TeacherCard/TeacherCard'
 
 interface TeacherListProps {
-    teachers: Teacher[]
-    levelValue: string | undefined
+    teachers: Teacher[];
+    levelValue?: string;
 }
 
 export default function TeacherList({

@@ -1,9 +1,14 @@
+'use client'
+
 import Link from 'next/link'
 
 import styles from './Header.module.css'
 import AuthNavigation from '../AuthNavigation/AuthNavigation'
+import { useAuthStore } from '@/lib/store/authStore'
 
 export default function Header() {
+    const { isAuthenticated } = useAuthStore()
+
     return (
         <header className={styles.header}>
             <div className={styles.container}>
@@ -23,6 +28,14 @@ export default function Header() {
                         >
                             Teachers
                         </Link>
+                        {isAuthenticated && (
+                            <Link
+                                href="/favorites"
+                                className={styles.navigation_link}
+                            >
+                                Favorites
+                            </Link>
+                        )}
                     </div>
                 </div>
                 <AuthNavigation />

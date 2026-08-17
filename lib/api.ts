@@ -30,7 +30,7 @@ export const getTeacherById = async (id: string) => {
 }
 
 export const getFavoriteTeachers = async () => {
-    const res = await nextServer.get<TeachersResponse>('/favorites')
+    const res = await nextServer.get<Teacher[]>('/favorites')
     return res.data
 }
 
