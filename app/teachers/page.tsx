@@ -69,7 +69,18 @@ export default function TeachersPage() {
                     {teachersQuery.isLoading ? (
                         <Loader />
                     ) : hasTeachers ? (
-                        <TeacherList teachers={teachers} />
+                        <>
+                            <TeacherList
+                                teachers={teachers}
+                                levelValue={filters?.level?.value}
+                            />
+                            <button
+                                className={styles.load_more_btn}
+                                onClick={() => teachersQuery.fetchNextPage()}
+                            >
+                                Load more
+                            </button>
+                        </>
                     ) : (
                         <NoTeachersFound />
                     )}

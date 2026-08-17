@@ -1,20 +1,29 @@
-import { Teacher } from '@/lib/types'
+import { Level, Teacher } from '@/lib/types'
 
-import styles from './TeacherList.module.css';
-import TeacherCard from '../TeacherCard/TeacherCard';
+import styles from './TeacherList.module.css'
+import TeacherCard from '../TeacherCard/TeacherCard'
 
 interface TeacherListProps {
-    teachers: Teacher[];
+    teachers: Teacher[]
+    levelValue: string | undefined
 }
 
-export default function TeacherList({ teachers }: TeacherListProps) {
+export default function TeacherList({
+    teachers,
+    levelValue,
+}: TeacherListProps) {
     return (
-        <ul className={styles.teachers_list}>
-            {teachers.map(teacher => {
-                return <li key={teacher._id}>
-                    <TeacherCard teacher={teacher}></TeacherCard>
-                </li>
-            })}
-        </ul>
-    );    
+            <ul className={styles.teachers_list}>
+                {teachers.map((teacher) => {
+                    return (
+                        <li key={teacher._id}>
+                            <TeacherCard
+                                teacher={teacher}
+                                levelValue={levelValue}
+                            ></TeacherCard>
+                        </li>
+                    )
+                })}
+            </ul>
+    )
 }

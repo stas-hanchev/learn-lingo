@@ -4,12 +4,14 @@ import { Teacher } from '@/lib/types'
 
 import { FaStar } from 'react-icons/fa'
 import styles from './TeacherCard.module.css'
+import Link from 'next/link'
 
 interface TeacherCardProps {
-    teacher: Teacher
+    teacher: Teacher;
+    levelValue: string | undefined;
 }
 
-export default function TeacherCard({ teacher }: TeacherCardProps) {
+export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
     return (
         <div className={styles.teacher_container}>
             <div className={styles.teacher_avatar_container}>
@@ -56,6 +58,19 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
                     </ul>
                 </div>
                 <p className={styles.teacher_name}>{teacher.name} {teacher.surname}</p>
+                <p className={styles.languages_info}>Speaks: <span className={styles.languages_values}>{teacher.languages.join(', ')}</span></p>
+                <p className={styles.lessons_info}>Lesson Info: <span className={styles.lessons_info_value}>{teacher.lesson_info}</span></p>
+                <p className={styles.conditions_info}>Conditions: <span className={styles.conditions_value}>{teacher.conditions.join(' ')}</span></p>
+                <Link href={`/teachers/${teacher._id}`} className={styles.teacher_details_link}>Read more</Link>
+                <div className={styles.levels_container}>
+                    {teacher.levels.map(level => {
+                        if (level === levelValue) {
+                            return (<p key={level} className={`${styles.level_value} ${styles.desired_level}`}>{level}</p>)
+                        } else {
+                            return (<p key={level} className={styles.level_value}>{level}</p>);
+                        }
+                    })}
+                </div>
             </div>
         </div>
     )

@@ -3,6 +3,7 @@
     gap: 48px;
     align-items: flex-start;
     padding: 24px;
+    background-color: #fff;
 }
 
 .teacher_avatar {
@@ -122,4 +123,80 @@
     line-height: 100%;
     color: #121417;
     margin-bottom: 32px;
+}
+
+.languages_info {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #8a8a89;
+}
+
+.languages_values {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #121417;
+    margin-bottom: 8px;
+}
+
+.lessons_info {
+    font-family: "Roboto", sans-serif;;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #8a8a89;
+    margin-bottom: 8px;
+}
+
+.lessons_info_value {
+   color: #121417; 
+}
+
+.conditions_info {
+    font-family: "Roboto", sans-serif;;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #8a8a89;
+    margin-bottom: 16px;
+}
+
+.conditions_value {
+    color: #121417; 
+}
+
+.teacher_details_link {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #121417;
+    margin-bottom: 32px;
+}
+
+.levels_container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.level_value {
+    border: 1px solid rgba(18, 20, 23, 0.2);
+    border-radius: 35px;
+    padding: 8px 12px;
+    margin: 0;
+    font-family: "Roboto", sans-serif;;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 114%;
+    color: #121417;
+}
+
+.desired_level {
+    background: #f4c550;
+    border: none;
 }
