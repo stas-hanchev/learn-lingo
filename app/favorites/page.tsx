@@ -1,10 +1,14 @@
+import { cookies } from 'next/headers'
 import styles from './page.module.css'
-import { getFavoriteTeachers } from '@/lib/api';
+import { getFavoriteTeachers, getFavoriteTeachersWithoutProxy } from '@/lib/api';
 import TeacherList from '@/components/TeacherList/TeacherList';
 import NoTeachersFound from '@/components/NoTeachersFound/NoTeachersFound';
 
 export default async function FavoritesPage() {
-    const favoriteTeachers = await getFavoriteTeachers();
+    const cookieStore = await cookies();
+    const favoriteTeachers = await getFavoriteTeachersWithoutProxy({
+        Cookie: cookieStore.toString(),
+    })
     console.log(favoriteTeachers);
 
     return (

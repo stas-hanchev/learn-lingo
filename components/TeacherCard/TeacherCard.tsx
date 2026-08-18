@@ -26,7 +26,7 @@ export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
 
     const { data: favoritesData } = useQuery({
         queryKey: ['favorites'],
-        queryFn: getFavoriteTeachers,
+        queryFn: () => getFavoriteTeachers(),
         enabled: isAuthenticated,
     })
 

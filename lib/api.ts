@@ -1,4 +1,6 @@
-import axios from 'axios'
+import axios from 'axios';
+
+import { api } from '@/app/api/api';
 
 import {
     TeachersResponse,
@@ -11,7 +13,7 @@ import {
 } from '@/lib/types'
 
 const nextServer = axios.create({
-    baseURL: 'http://localhost:3000/api',
+    baseURL: process.env.NEXT_PUBLIC_PROXY_API_URL,
     withCredentials: true, // дозволяє axios працювати з cookie
 })
 
@@ -31,6 +33,11 @@ export const getTeacherById = async (id: string) => {
 
 export const getFavoriteTeachers = async () => {
     const res = await nextServer.get<Teacher[]>('/favorites')
+    return res.data
+}
+
+export const getFavoriteTeachersWithoutProxy = async (headers?: Record<string, string>) => {
+    const res = await api.get<Teacher[]>('/favorites', { headers })
     return res.data
 }
 
