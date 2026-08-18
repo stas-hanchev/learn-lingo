@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers'
 import styles from './page.module.css'
-import { getFavoriteTeachers, getFavoriteTeachersWithoutProxy } from '@/lib/api';
+import { getFavoriteTeachersWithoutProxy } from '@/lib/api';
 import TeacherList from '@/components/TeacherList/TeacherList';
 import NoTeachersFound from '@/components/NoTeachersFound/NoTeachersFound';
 

@@ -14,6 +14,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { FaStar } from 'react-icons/fa'
 import styles from './TeacherCard.module.css'
 import Link from 'next/link'
+import FavoriteButton from '../FavoriteButton/FavoriteButton'
 
 interface TeacherCardProps {
     teacher: Teacher
@@ -21,48 +22,6 @@ interface TeacherCardProps {
 }
 
 export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
-    const queryClient = useQueryClient()
-    const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
-
-    const { data: favoritesData } = useQuery({
-        queryKey: ['favorites'],
-        queryFn: () => getFavoriteTeachers(),
-        enabled: isAuthenticated,
-    })
-
-    const isFavorite =
-        favoritesData?.some(
-            (favTeacher) => favTeacher._id === teacher._id
-        ) ?? false;
-
-    const addMutation = useMutation({
-        mutationFn: () => addFavoriteTeacher(teacher._id),
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['favorites'] })
-        },
-    });
-
-    const removeMutation = useMutation({
-        mutationFn: () => removeFavoriteTeacher(teacher._id),
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['favorites'] })
-        },
-    });
-
-    const isPending = addMutation.isPending || removeMutation.isPending;
-
-    const handleFavoriteClick = () => {
-        if (!isAuthenticated) {
-            alert('Please log in to add teachers to favorites')
-            return
-        }
-
-        if (isFavorite) {
-            removeMutation.mutate()
-        } else {
-            addMutation.mutate()
-        }
-    };
 
     return (
         <div className={styles.teacher_container}>
@@ -115,22 +74,7 @@ export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
                             </p>
                         </li>
                         <li>
-                            <button
-                                type="button"
-                                className={styles.favorite_button}
-                                onClick={handleFavoriteClick}
-                                disabled={isPending}
-                                aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-                                aria-pressed={isFavorite}
-                            >
-                                <svg
-                                    width={26}
-                                    height={26}
-                                    className={`${styles.heart_icon} ${isFavorite ? styles.heart_icon_active : ''}`}
-                                >
-                                    <use href='/sprite.svg#icon-heart'></use>
-                                </svg>
-                            </button>
+                            <FavoriteButton teacherId={teacher._id}></FavoriteButton>
                         </li>
                     </ul>
                 </div>

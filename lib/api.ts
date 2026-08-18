@@ -31,6 +31,12 @@ export const getTeacherById = async (id: string) => {
     return res.data
 }
 
+export const getTeacherByIdWithoutProxy = async (id: string) => {
+    const res = await api.get<Teacher>(`/teachers/${id}`)
+    return res.data
+}
+
+
 export const getFavoriteTeachers = async () => {
     const res = await nextServer.get<Teacher[]>('/favorites')
     return res.data

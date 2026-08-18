@@ -1,0 +1,63 @@
+'use client'
+
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { addFavoriteTeacher, getFavoriteTeachers, removeFavoriteTeacher } from '@/lib/api'
+import { useAuthStore } from '@/lib/store/authStore'
+import styles from './FavoriteButton.module.css'
+
+interface FavoriteButtonProps {
+    teacherId: string
+}
+
+export default function FavoriteButton({ teacherId }: FavoriteButtonProps) {
+    const queryClient = useQueryClient()
+    const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
+
+    const { data: favoritesData } = useQuery({
+        queryKey: ['favorites'],
+        queryFn: () => getFavoriteTeachers(),
+        enabled: isAuthenticated,
+    })
+
+    const isFavorite =
+        favoritesData?.some((favTeacher) => favTeacher._id === teacherId) ?? false
+
+    const addMutation = useMutation({
+        mutationFn: () => addFavoriteTeacher(teacherId),
+        onSuccess: () => queryClient.invalidateQueries({ queryKey: ['favorites'] }),
+    })
+
+    const removeMutation = useMutation({
+        mutationFn: () => removeFavoriteTeacher(teacherId),
+        onSuccess: () => queryClient.invalidateQueries({ queryKey: ['favorites'] }),
+    })
+
+    const isPending = addMutation.isPending || removeMutation.isPending
+
+    const handleClick = () => {
+        if (!isAuthenticated) {
+            alert('Please log in to add teachers to favorites')
+            return
+        }
+        isFavorite ? removeMutation.mutate() : addMutation.mutate()
+    }
+
+    return (
+        <button
+            type="button"
+            className={styles.favorite_button}
+            onClick={handleClick}
+            disabled={isPending}
+            aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            aria-pressed={isFavorite}
+        >
+            <svg
+                width={26}
+                height={26}
+                className={`${styles.heart_icon} ${isFavorite ? styles.heart_icon_active : ''}`}
+            >
+                <use href="/sprite.svg#icon-heart"></use>
+            </svg>
+        </button>
+    )
+}
