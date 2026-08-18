@@ -1,20 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-
 import { Teacher } from '@/lib/types'
-import {
-    addFavoriteTeacher,
-    removeFavoriteTeacher,
-    getFavoriteTeachers,
-} from '@/lib/api'
-import { useAuthStore } from '@/lib/store/authStore'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
 import { FaStar } from 'react-icons/fa'
 import styles from './TeacherCard.module.css'
-import Link from 'next/link'
 import FavoriteButton from '../FavoriteButton/FavoriteButton'
+import { useState } from 'react'
+import ReviewItem from '../ReviewItem/ReviewItem'
 
 interface TeacherCardProps {
     teacher: Teacher
@@ -22,6 +15,15 @@ interface TeacherCardProps {
 }
 
 export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
+    const [isExpanded, setIsExpanded] = useState(false)
+
+    const toggleExpanded = () => {
+        if (isExpanded) {
+            setIsExpanded(false)
+        } else {
+            setIsExpanded(true)
+        }
+    }
 
     return (
         <div className={styles.teacher_container}>
@@ -74,7 +76,9 @@ export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
                             </p>
                         </li>
                         <li>
-                            <FavoriteButton teacherId={teacher._id}></FavoriteButton>
+                            <FavoriteButton
+                                teacherId={teacher._id}
+                            ></FavoriteButton>
                         </li>
                     </ul>
                 </div>
@@ -99,12 +103,23 @@ export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
                         {teacher.conditions.join(' ')}
                     </span>
                 </p>
-                <Link
-                    href={`/teachers/${teacher._id}`}
-                    className={styles.teacher_details_link}
-                >
-                    Read more
-                </Link>
+                {isExpanded ? (
+                    <div className={styles.expanded_info}>
+                        <p className={styles.experience}>
+                            {teacher.experience}
+                        </p>
+                        {teacher.reviews.map((review, indx) => {
+                            return (<ReviewItem key={indx} review={review} />);
+                        })}
+                    </div>
+                ) : (
+                    <button
+                        className={styles.teacher_details_button}
+                        onClick={toggleExpanded}
+                    >
+                        Read more
+                    </button>
+                )}
                 <div className={styles.levels_container}>
                     {teacher.levels.map((level) => {
                         if (level === levelValue) {
@@ -125,6 +140,12 @@ export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
                         }
                     })}
                 </div>
+
+                { isExpanded && (
+                    <button className={styles.book_btn}>
+                        Book trial lesson
+                    </button>
+                )}
             </div>
         </div>
     )

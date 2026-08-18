@@ -22,10 +22,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .card_info_part {
-
+    flex: 1;
+    min-width: 0;
 }
 
 .heading {
@@ -167,7 +169,7 @@
     color: #121417; 
 }
 
-.teacher_details_link {
+.teacher_details_button {
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
@@ -175,7 +177,8 @@
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: #121417;
-    margin-bottom: 32px;
+    border: none;
+    background-color: #fff;
 }
 
 .levels_container {
@@ -200,4 +203,31 @@
 .desired_level {
     background: #f4c550;
     border: none;
+}
+
+.expanded_info {
+
+}
+
+.experience {
+    font-family: "Roboto", sans-serif;;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #121417;
+    margin-bottom: 32px;
+}
+
+.book_btn {
+    border-radius: 12px;
+    width: 232px;
+    height: 60px;
+    background: #f4c550;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: #121417;
+    border: none;
+    margin-top: 32px;
 }

@@ -1,0 +1,18 @@
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    width: 44px;
+    height: 44px;
+    background: #fff;
+    border: #121417 1px solid;
+}
+
+.letter {
+   font-family: "Roboto", sans-serif;;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 150%;
+    color: #121417; 
+}
