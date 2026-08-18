@@ -231,3 +231,60 @@
     border: none;
     margin-top: 32px;
 }
+
+.heading {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: #121417;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-family: "Roboto", sans-serif;;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 138%;
+    color: rgba(18, 20, 23, 0.8);
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.your_teacher_container {
+    display: flex;
+    gap: 14px;
+}
+
+.your_teacher_avatar {
+    border-radius: 100px;
+    width: 44px;
+    height: 44px;
+}
+
+.your_teacher_name_container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 40px;
+}
+
+.your_teacher {
+    margin: 0;
+    font-family: "Roboto", sans-serif;;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 133%;
+    color: #8a8a89;
+}
+
+.your_teacher_name {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #121417;
+}

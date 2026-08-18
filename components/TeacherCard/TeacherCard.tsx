@@ -1,13 +1,17 @@
 'use client'
 
 import Image from 'next/image'
-import { Teacher } from '@/lib/types'
+import { BookingRequestBody, Teacher } from '@/lib/types'
 
 import { FaStar } from 'react-icons/fa'
 import styles from './TeacherCard.module.css'
 import FavoriteButton from '../FavoriteButton/FavoriteButton'
 import { useState } from 'react'
 import ReviewItem from '../ReviewItem/ReviewItem'
+import { useAuthStore } from '@/lib/store/authStore'
+import Modal from '../Modal/Modal'
+import BookingForm from '@/components/Forms/BookingForm/BookingForm'
+import { FormikHelpers } from 'formik'
 
 interface TeacherCardProps {
     teacher: Teacher
@@ -15,13 +19,37 @@ interface TeacherCardProps {
 }
 
 export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
+    const { isAuthenticated, user } = useAuthStore()
     const [isExpanded, setIsExpanded] = useState(false)
+    const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
 
     const toggleExpanded = () => {
         if (isExpanded) {
             setIsExpanded(false)
         } else {
             setIsExpanded(true)
+        }
+    }
+
+    const handleBookButtonClick = () => {
+        if (isAuthenticated) {
+            setIsBookingModalOpen(true)
+        } else {
+            alert('First, you need to log in!')
+        }
+    }
+
+    const handleBookingSubmit = async (
+        values: BookingRequestBody,
+        actions: FormikHelpers<BookingRequestBody>
+    ) => {
+        try {
+            alert(`${user?.name} successfully booked a lesson with ${teacher.name} ${teacher.surname}. Contact info ${JSON.stringify(values)}`);
+        } catch (error) {
+            console.error(error)
+            alert(`Oops, error occured(`)
+        } finally {
+            actions.setSubmitting(false)
         }
     }
 
@@ -109,7 +137,7 @@ export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
                             {teacher.experience}
                         </p>
                         {teacher.reviews.map((review, indx) => {
-                            return (<ReviewItem key={indx} review={review} />);
+                            return <ReviewItem key={indx} review={review} />
                         })}
                     </div>
                 ) : (
@@ -141,10 +169,42 @@ export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
                     })}
                 </div>
 
-                { isExpanded && (
-                    <button className={styles.book_btn}>
+                {isExpanded && (
+                    <button
+                        className={styles.book_btn}
+                        onClick={handleBookButtonClick}
+                    >
                         Book trial lesson
                     </button>
+                )}
+
+                {isBookingModalOpen && (
+                    <Modal onClose={() => setIsBookingModalOpen(false)}>
+                        <h2 className={styles.heading}>Book trial lesson</h2>
+                        <p className={styles.description}>
+                            Our experienced tutor will assess your current
+                            language level, discuss your learning goals, and
+                            tailor the lesson to your specific needs.
+                        </p>
+                        <div className={styles.your_teacher_container}>
+                            <Image
+                                src={teacher.avatar_url}
+                                width={44}
+                                height={44}
+                                alt={`Photo of teacher ${teacher.name} ${teacher.surname}`}
+                                className={styles.your_teacher_avatar}
+                            ></Image>
+                            <div className={styles.your_teacher_name_container}>
+                                <p className={styles.your_teacher}>
+                                    Your teacher
+                                </p>
+                                <p
+                                    className={styles.your_teacher_name}
+                                >{`${teacher.name} ${teacher.surname}`}</p>
+                            </div>
+                        </div>
+                        <BookingForm onSubmit={handleBookingSubmit}></BookingForm>
+                    </Modal>
                 )}
             </div>
         </div>

@@ -1,0 +1,167 @@
+.subtitle {
+    margin: 0;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 133%;
+    color: #121417;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.radio_group {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    justify-content: center;
+    margin-bottom: 26px;
+}
+
+.radio_input {
+    margin-right: 8px;
+    accent-color: #f4c550;
+}
+
+.radio_input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #777;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.radio_input:checked {
+    border-color: #f4c550;
+}
+
+.radio_input:checked::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #f4c550;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radio_label {
+    display: flex;
+    align-items: center;
+}
+
+.error_icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 105px;
+    width: 20px;
+    height: 20px;
+    color: #ff3448;
+    pointer-events: none;
+}
+
+.error {
+    display: block;
+    margin-top: 2px;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ff3448;
+}
+
+.field_group {
+    width: 527px;
+}
+
+.input_wrapper {
+    position: relative;
+    width: 527px;
+}
+
+.input_error {
+    border: 1px solid #ff4d55;
+    background: #ffe3e3;
+}
+
+.input_wrapper_error .field_label {
+    color: #ff4d55;
+    background: #ffe3e3;
+}
+
+.email_input {
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 12px;
+    padding: 16px 18px 16px 18px;
+    width: 438px;
+    height: 54px;
+}
+
+.email_input {
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #101828;
+    outline: none;
+}
+
+.name_input {
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 12px;
+    padding: 16px 18px 16px 18px;
+    width: 438px;
+    height: 54px;
+}
+
+.name_input {
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #101828;
+    outline: none;
+}
+
+.phone_input {
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 12px;
+    padding: 16px 18px 16px 18px;
+    width: 438px;
+    height: 54px;
+}
+
+.phone_input {
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #101828;
+    outline: none;
+}
+
+.booking_btn {
+    margin-top: 26px;
+    border-radius: 12px;
+    width: 438px;
+    height: 60px;
+    background: #f4c550;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: #121417;
+    border: none;
+}

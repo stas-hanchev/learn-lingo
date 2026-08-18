@@ -99,3 +99,19 @@ export interface TeacherQuery {
     page?: number;
     perPage: number;
 };
+
+export enum LearningReason {
+    EmptyValue = '',
+    careerAndBusiness = 'Career and business',
+    lessonForKids = 'Lesson for kids',
+    livingAbroad = 'Living abroad',
+    examsAndCoursework = 'Exams and coursework',
+    cultureTravelOrHobby = 'Culture, travel or hobby',
+}
+
+export interface BookingRequestBody {
+    reason: LearningReason;
+    full_name: string;
+    email: string;
+    phone_number: string;
+}

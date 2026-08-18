@@ -105,7 +105,7 @@ export default function LoginForm({ onSubmit }: LoginFormProps) {
                                         passwordHasError ? '' : 'Password'
                                     }
                                     className={`${styles.password_input} ${
-                                        emailHasError ? styles.input_error : ''
+                                        passwordHasError ? styles.input_error : ''
                                     }`}
                                     aria-invalid={passwordHasError}
                                     aria-describedby={
