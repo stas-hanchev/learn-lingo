@@ -1,7 +1,17 @@
+import styles from './loading.module.css';
+
 export default function Loading() {
     return (
-        <div className="flex min-h-[50vh] items-center justify-center">
-            <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-200 border-t-blue-600" />
+        <div className={styles.backdrop}>
+            <div className={styles.loaderBox} role="status" aria-live="polite">
+                <span className={styles.spinner} />
+
+                <p className={styles.title}>Loading...</p>
+
+                <p className={styles.description}>
+                    Please wait while we fetch data for you
+                </p>
+            </div>
         </div>
     )
 }

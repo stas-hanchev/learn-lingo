@@ -1,0 +1,22 @@
+.error_container {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    border-radius: 12px;
+    padding: 16px 48px;
+    background: #f4c550;
+    font-family: var(--font-roboto);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: #121417;
+    border: none;
+    margin: 0 auto;
+    margin-bottom: 96px;
+    margin-top: 30px;
+}

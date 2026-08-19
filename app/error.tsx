@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import styles from './error.module.css';
 
 export default function Error({
     error,
@@ -14,14 +15,14 @@ export default function Error({
     }, [error])
 
     return (
-        <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4 text-center">
+        <div className={styles.error_container}>
             <h2 className="text-xl font-semibold">Something went wrong</h2>
             <p className="text-gray-500">
                 Try refreshing the page or coming back later.
             </p>
             <button
                 onClick={() => reset()}
-                className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+                className={styles.btn}
             >
                 Try again
             </button>
