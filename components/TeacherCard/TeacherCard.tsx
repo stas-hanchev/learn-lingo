@@ -44,8 +44,11 @@ export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
         actions: FormikHelpers<BookingRequestBody>
     ) => {
         try {
+            const formattedValues = Object.entries(values)
+                .map(([key, value]) => `${key} - ${value}`)
+                .join('\n')
             alert(
-                `${user?.name} successfully booked a lesson with ${teacher.name} ${teacher.surname}. Contact info ${JSON.stringify(values)}`
+                `${user?.name} successfully booked a lesson with ${teacher.name} ${teacher.surname}.\nInformation sent:\n${formattedValues}`
             )
         } catch (error) {
             console.error(error)
