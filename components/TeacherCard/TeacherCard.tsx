@@ -44,7 +44,9 @@ export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
         actions: FormikHelpers<BookingRequestBody>
     ) => {
         try {
-            alert(`${user?.name} successfully booked a lesson with ${teacher.name} ${teacher.surname}. Contact info ${JSON.stringify(values)}`);
+            alert(
+                `${user?.name} successfully booked a lesson with ${teacher.name} ${teacher.surname}. Contact info ${JSON.stringify(values)}`
+            )
         } catch (error) {
             console.error(error)
             alert(`Oops, error occured(`)
@@ -203,7 +205,9 @@ export default function TeacherCard({ teacher, levelValue }: TeacherCardProps) {
                                 >{`${teacher.name} ${teacher.surname}`}</p>
                             </div>
                         </div>
-                        <BookingForm onSubmit={handleBookingSubmit}></BookingForm>
+                        <BookingForm
+                            onSubmit={handleBookingSubmit}
+                        ></BookingForm>
                     </Modal>
                 )}
             </div>

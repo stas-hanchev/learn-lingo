@@ -1,20 +1,20 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
 import 'modern-normalize/modern-normalize.css'
 import './globals.css'
 import Header from '@/components/Header/Header'
 import TanStackProvider from '@/components/TanStackProvider/TanStackProvider'
 import AuthProvider from '@/components/AuthProvider/AuthProvider'
 
-const geistSans = Geist({
-    variable: '--font-geist-sans',
-    subsets: ['latin'],
-})
+// Inter
 
-const geistMono = Geist_Mono({
-    variable: '--font-geist-mono',
-    subsets: ['latin'],
-})
+import { Roboto } from 'next/font/google';
+
+const roboto = Roboto({
+  subsets: ['latin'], 
+  weight: ['400', '500', '700'],
+  variable: '--font-roboto', 
+  display: 'swap', 
+});
 
 export const metadata: Metadata = {
     title: 'LearnLingo',
@@ -30,9 +30,8 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            className={`${geistSans.variable} ${geistMono.variable}`}
         >
-            <body suppressHydrationWarning>
+            <body className={roboto.variable} suppressHydrationWarning>
                 <TanStackProvider>
                     <AuthProvider>
                         <Header />

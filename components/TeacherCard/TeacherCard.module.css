@@ -35,7 +35,7 @@
 }
 
 .languages {
-    font-family: "Roboto", sans-serif;;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -62,7 +62,7 @@
 }
 
 .characteristic_text {
-    font-family: "Roboto", sans-serif;;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -76,7 +76,7 @@
 }
 
 .lessons_done {
-    font-family: "Roboto", sans-serif;;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -96,7 +96,7 @@
 }
 
 .rating {
-    font-family: "Roboto", sans-serif;;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -105,7 +105,7 @@
 }
 
 .price {
-    font-family: "Roboto", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -120,7 +120,7 @@
 .teacher_name {
     margin: 0;
     margin-top: 8px;
-    font-family: "Roboto", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 24px;
     line-height: 100%;
@@ -129,7 +129,7 @@
 }
 
 .languages_info {
-    font-family: "Roboto", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -144,7 +144,7 @@
 }
 
 .lessons_info {
-    font-family: "Roboto", sans-serif;;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -157,7 +157,7 @@
 }
 
 .conditions_info {
-    font-family: "Roboto", sans-serif;;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -170,7 +170,7 @@
 }
 
 .teacher_details_button {
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -193,7 +193,7 @@
     border-radius: 35px;
     padding: 8px 12px;
     margin: 0;
-    font-family: "Roboto", sans-serif;;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 14px;
     line-height: 114%;
@@ -210,7 +210,7 @@
 }
 
 .experience {
-    font-family: "Roboto", sans-serif;;
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
@@ -223,7 +223,7 @@
     width: 232px;
     height: 60px;
     background: #f4c550;
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 700;
     font-size: 18px;
     line-height: 156%;
@@ -233,7 +233,7 @@
 }
 
 .heading {
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 40px;
     line-height: 120%;
@@ -244,7 +244,7 @@
 }
 
 .description {
-    font-family: "Roboto", sans-serif;;
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 16px;
     line-height: 138%;
@@ -273,7 +273,7 @@
 
 .your_teacher {
     margin: 0;
-    font-family: "Roboto", sans-serif;;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 12px;
     line-height: 133%;
@@ -282,7 +282,7 @@
 
 .your_teacher_name {
     margin: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;

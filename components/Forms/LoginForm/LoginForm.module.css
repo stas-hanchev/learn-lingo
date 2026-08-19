@@ -7,7 +7,7 @@
 }
 
 .form_heading {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 600;
     font-size: 20px;
     line-height: 120%;
@@ -16,7 +16,7 @@
 }
 
 .form_paragraph {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
@@ -52,7 +52,7 @@
     width: 438px;
     height: 60px;
     background: #f4c550;
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 700;
     font-size: 18px;
     line-height: 156%;
@@ -63,7 +63,7 @@
 
 .email_input {
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 16px;
     color: #101828;
@@ -88,7 +88,7 @@
     padding: 0 4px;
     background: #fff;
 
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
@@ -138,7 +138,7 @@
     display: block;
     margin-top: 2px;
 
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -154,7 +154,7 @@
     width: 54px;
     height: 16px;
     background: #ffdfdf;
-    font-family: var(--second-family);
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 12px;
     line-height: 133%;

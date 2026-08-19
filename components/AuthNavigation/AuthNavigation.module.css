@@ -9,7 +9,7 @@
     align-items: center;
     gap: 8px;
     text-decoration: none;
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 700;
     font-size: 16px;
     line-height: 125%;
@@ -19,7 +19,7 @@
 }
 
 .username {
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 700;
     font-size: 16px;
     line-height: 125%;
@@ -45,7 +45,7 @@
     width: 166px;
     height: 48px;
     background: #121417;
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 700;
     font-size: 16px;
     line-height: 125%;
@@ -60,7 +60,7 @@
     width: 166px;
     height: 48px;
     background: #121417;
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 700;
     font-size: 16px;
     line-height: 125%;
@@ -70,7 +70,7 @@
 
 .heading {
     margin: 0;
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 40px;
     line-height: 120%;
@@ -81,7 +81,7 @@
 
 .description {
     margin: 0;
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 16px;
     line-height: 138%;

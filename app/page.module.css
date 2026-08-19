@@ -18,7 +18,7 @@
 }
 
 .hero_title {
-  font-family: var(--font-family);
+  font-family: var(--font-roboto);
   font-weight: 500;
   font-size: 48px;
   line-height: 117%;
@@ -34,7 +34,7 @@
 }
 
 .hero_description {
-  font-family: var(--font-family);
+  font-family: var(--font-roboto);
   font-weight: 400;
   font-size: 16px;
   line-height: 138%;

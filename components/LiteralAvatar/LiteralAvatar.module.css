@@ -10,7 +10,7 @@
 }
 
 .letter {
-   font-family: "Roboto", sans-serif;;
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 24px;
     line-height: 150%;

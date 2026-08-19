@@ -29,7 +29,7 @@
 }
 
 .number {
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 28px;
     line-height: 114%;
@@ -38,7 +38,7 @@
 }
 
 .description {
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 14px;
     line-height: 129%;

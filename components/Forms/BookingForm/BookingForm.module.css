@@ -1,6 +1,6 @@
 .subtitle {
     margin: 0;
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 500;
     font-size: 24px;
     line-height: 133%;
@@ -75,7 +75,7 @@
     display: block;
     margin-top: 2px;
 
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -111,7 +111,7 @@
 
 .email_input {
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 16px;
     color: #101828;
@@ -128,7 +128,7 @@
 
 .name_input {
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 16px;
     color: #101828;
@@ -145,7 +145,7 @@
 
 .phone_input {
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-roboto);
     font-weight: 400;
     font-size: 16px;
     color: #101828;
@@ -158,7 +158,7 @@
     width: 438px;
     height: 60px;
     background: #f4c550;
-    font-family: var(--font-family);
+    font-family: var(--font-roboto);
     font-weight: 700;
     font-size: 18px;
     line-height: 156%;
